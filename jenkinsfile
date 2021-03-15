@@ -3,7 +3,7 @@ agent any
 stages{
 stage('git checkout'){
 steps{
-git checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'GITHUB_ID', url: 'https://github.com/sneha-khambal/maven-enkinsfile-dockerfile.git']]])
+git checkout(credentialsId: 'GITHUB_ID', url: 'https://github.com/sneha-khambal/maven-enkinsfile-dockerfile.git')
 
 }
 }}}
