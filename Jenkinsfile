@@ -7,12 +7,16 @@ git(credentialsId: 'GITHUB_ID', url: 'https://github.com/sneha-khambal/maven-enk
 
 }}
 stage('Mvn package'){
-  def mvnHome = tool name: 'maven', type: 'maven'
-    def mvnCMD  = "${mvnHome}/bin/mvn"
-   sh "${mvnCMD} clean package"
+  
+  steps{
+    sh "mvn clean package"
  echo 'packaged'
-   
+  }
  }
+  stage('build docker image'){
+    steps{
+      sh 'docker build  -t  sneha1997/my-app:2.0.0.0'
+    }
 
 
 }}
