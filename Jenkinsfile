@@ -15,7 +15,7 @@ stage('Mvn package'){
  }
   stage('build docker image'){
     steps{
-      sh 'docker build  -t  sneha1997/my-app:2.0.0.0'
+      sh 'docker build  -t  sneha1997/my-app:2.0.0.0 .'
     }
 
 
