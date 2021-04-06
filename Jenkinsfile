@@ -7,9 +7,10 @@ git(credentialsId: 'GITHUB_ID', url: 'https://github.com/sneha-khambal/maven-enk
 
 }}
 stage('Mvn package'){
-  steps{
-    def mvnHome = tool name: 'maven', type: 'maven'
+  def mvnHome = tool name: 'maven', type: 'maven'
     def mvnCMD  = "${mvnHome}/bin/mvn"
+  steps{
+    
     sh "${mvnCMD} clean package"
  echo 'packaged'
   }
