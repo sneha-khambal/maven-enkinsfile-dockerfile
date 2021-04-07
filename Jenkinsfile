@@ -22,11 +22,11 @@ stage('Mvn package'){
 }
 
   stage('push to dockerHub'){
-  withCredentials([string(credentialsId: 'dockr_pswd', variable: 'docker_pswd')]) {
+  steps{
+      withCredentials([string(credentialsId: 'dockr_pswd', variable: 'docker_pswd')]) {
     sh "docker login -u sneha1997 -p ${docker_pswd}"
 }
-  
-    steps{sh 'docker push sneha1997/my-app:2.0.0.0'} 
+      sh 'docker push sneha1997/my-app:2.0.0.0'} 
   
   }}
 }
