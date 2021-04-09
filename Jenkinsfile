@@ -1,9 +1,7 @@
 pipeline{
 agent any
 stages{
-stage('git checkout'){
-steps{
-git(credentialsId: 'GITHUB_ID', url: 'https://github.com/sneha-khambal/maven-enkinsfile-dockerfile')
+stage('git checkout'){ 
 
 }}
 stage('Mvn package'){
@@ -29,11 +27,7 @@ stage('Mvn package'){
       sh 'docker push sneha1997/my-app:2.0.0.0'} 
   
   }
-  stage('run on dev server'){
-    steps{
-      sh 'docker run -p 9090:80 -d -name my-app1 sneha1997/my-app:2.0.0.0'
-    }
-  }
+   
 }
 }
  
